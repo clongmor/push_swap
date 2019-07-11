@@ -1,0 +1,53 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    logic.txt                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: clongmor <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/06/29 09:47:02 by clongmor          #+#    #+#              #
+#    Updated: 2019/07/03 13:59:19 by clongmor         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NB need to change ft_push so it works.
+
+functions allowed: read, write, malloc, free, exit.
+author file, memory leaks, unexpected quitting, Makefile(compiles libft.a and then push_swap)
+
+Checker file:
+takes in the list of integers as an argument. if no argument, checker stops and does nothing (exit).
+takes in instructions from pushswap (via the std input - output from push_swap) and checks that they 
+validly sort the input given to pushswap from smallest to biggest integers and leave
+stack b empty. returns OK or KO followed by \n.
+would need an array of functions assosciated with str inputs. calls the 
+functions to sort the numbers and returns. if the input is invalid, returns error on std error.
+
+NB first argument received is on the top of the stack!!
+
+Pushswap:
+takes in a list of integers as an argument.
+finds out the smallest amount of instructions to sort a list of integers smallest to
+biggest and displays them in order on the output. followed by a \n
+ sorts using two arrays of the same size only and 11 instruction sets. 
+
+instruction sets:
+sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there
+is only one or no elements).
+sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there
+is only one or no elements).
+ss : sa and sb at the same time.
+pa : push a - take the first element at the top of b and put it at the top of a. Do
+nothing if b is empty.
+pb : push b - take the first element at the top of a and put it at the top of b. Do
+nothing if a is empty.
+ra : rotate a - shift up all elements of stack a by 1. The first element becomes
+the last one.
+rb : rotate b - shift up all elements of stack b by 1. The first element becomes
+the last one.
+rr : ra and rb at the same time.
+rra : reverse rotate a - shift down all elements of stack a by 1. The flast element
+becomes the first one.
+rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element
+becomes the first one.
+rrr : rra and rrb at the same time.
