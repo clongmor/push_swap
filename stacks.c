@@ -99,11 +99,15 @@ void push(t_stack **sender_stack, t_stack **receiver_stack)
 void	pa(t_stack **b, t_stack **a)
 {
 	push(b, a);
+	update_index(a);
+	update_index(b);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
+	update_index(a);
+	update_index(b);
 }
 
 void	swap(t_stack **stack)
@@ -123,14 +127,102 @@ void	swap(t_stack **stack)
 	}
 }
 
-void	a(t_stack **stack)
+void	sa(t_stack **a)
 {
-	swap(stack);
+	swap(a);
+	update_index(a);
 }
 
-void b(t_stack **stack)
+void sb(t_stack **b)
 {
-	swap(stack);
+	swap(b);
+	update_index(b);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	sa(a);
+	sb(b);
+}
+
+void	rotate(t_stack **stack)
+{
+	t_stack	*head;
+	t_stack	*first;
+
+	head = (*stack);
+	first = (*stack)->next;
+	if (!(head->next) || !(head->next->next))
+		return ;
+	head->next = (*stack)->next->next;
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	head->next = first;
+	first->next = NULL;
+}
+
+void	ra(t_stack **a)
+{
+	rotate(a);
+	update_index(a);
+}
+
+void	rb(t_stack **b)
+{
+	rotate(b);
+	update_index(b);
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	ra(a);
+	rb(b);
+}
+
+void	rev_rotate(t_stack **stack)
+{
+	t_stack	*head;
+	t_stack	*last;
+
+	head = (*stack);
+
+	if (!(head->next) || !(head->next->next))
+		return ;
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	last = head;
+	head = *stack;
+	while (head->next->next != NULL)
+	{
+		head = head->next;
+	}
+	head->next = NULL;
+	last->next = (*stack)->next;
+	(*stack)->next = last;
+}
+
+void	rra(t_stack **a)
+{
+	rev_rotate(a);
+	update_index(a);
+}
+
+void	rrb(t_stack **b)
+{
+	rev_rotate(b);
+	update_index(b);
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	rev_rotate(a);
+	update_index(a);
+	rev_rotate(b);
+	update_index(b);
 }
 
 int main()
@@ -149,8 +241,8 @@ int main()
     birth_to_parent(&a, -1, 4);
 	birth_to_parent(&b, 200, 0);
 
-	swap(&a);
-	update_index(&a);
+	rotate(&b);
+	update_index(&b);
 
     return (0);
 }
