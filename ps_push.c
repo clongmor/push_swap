@@ -8,11 +8,15 @@ void    ps_push(t_list **lsta, t_list **lstb)
 
     if (!(*lstb))
     {
-        printf("nothing in lstb");
+        printf("nothing in lstb\n");
         return ;
     }
+    if (!(*lsta))
+    {
+
+    }
     tmp_b = (*lstb)->next;
-                            printf("\ntmp_b is: %s and lstb->next is %s\n", tmp_b->content, (*lstb)->next->content);
+                            // printf("\ntmp_b is: %s and lstb->next is %s\n", tmp_b->content, (*lstb)->next->content);
     tmp_a = (*lsta);
                             printf("tmp_a is: %s and (*lsta) is: %s\n", tmp_a->content, (*lsta)->content);
     (*lstb)->next = tmp_a;
@@ -36,11 +40,13 @@ int main(void)
     
     lsta = malloc(sizeof(t_list));
     lstb = malloc(sizeof(t_list));
+    lsta = NULL;
+    //lstb = NULL;
     lstb = ft_lstnew(b, b_size);
-    lsta = ft_lstnew(b, b_size);
-    ft_lstaddtail(&lsta, (ft_lstnew(c, c_size)));
-    ft_lstaddtail(&lsta, ft_lstnew(d, d_size));
-    //ft_lstaddtail(&lstb, (ft_lstnew(c, c_size)));
+    //lsta = ft_lstnew(b, b_size);
+    //ft_lstaddtail(&lsta, (ft_lstnew(c, c_size)));
+    //ft_lstaddtail(&lsta, ft_lstnew(d, d_size));
+    ft_lstaddtail(&lstb, (ft_lstnew(c, c_size)));
     head = lsta;
     while (lsta)
     {
@@ -50,7 +56,7 @@ int main(void)
     lsta = head;
     head = lstb;
     if (lstb == NULL)
-        printf("lstb is empty");
+        printf("lstb is empty\n");
     else while (lstb)
     {
         printf("lstb contains: %s\n", (lstb)->content);
@@ -58,6 +64,7 @@ int main(void)
             printf("lstb only has one item\n");
         lstb = (lstb)->next;
     }
+    printf("check\n");
     lstb = head;
     ps_push(&lsta, &lstb);
     //ps_swap(&lsta);
