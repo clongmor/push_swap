@@ -6,7 +6,7 @@
         {
             "type": "shell",
             "label": "build",
-            "command": "gcc stacks.c libft/libft.a -o push_swap -g",
+            "command": "gcc stacks.c checker.c libft/libft.a -o push_swap -g",
             "options": {
             },
             "group": {

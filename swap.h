@@ -3,6 +3,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include "/sgoinfre/clongmor/libft/libft.h"
+# include <stdio.h>
 # define true 1
 # define false 0
 # define MAX_INT 2147483647

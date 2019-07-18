@@ -6,8 +6,8 @@ int		check_input_int(int len, char **list)
 	int	j;
 
 	j = 0;
-	i = len - 1;
-	while (i < (len - 1))
+	i = 1;
+	while (i < (len))
 	{
 		while (list[i][j] != '\0')
 		{
@@ -56,14 +56,20 @@ void	populate_list(t_stack **stack, char **list)
 
 int		check_maxmin(char **list)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		len;
+	char	*min;
+	char	*max;
 
 	i = 1;
+	min = ft_itoa(MIN_INT);
+	max = ft_itoa(MAX_INT);
 	while (list[i])
 	{
-		j = ft_atoi(list[i]);
-		if ((j > MAX_INT) || (j < MIN_INT))
+		len = ft_strlen(list[i]);
+		if (len > 10 && (strcmp(list[i], min) > 0))
+			return (0);
+		else if (len == 10 && (strcmp(list[i], max) > 0))
 			return (0);
 		i++;
 	}
@@ -77,27 +83,30 @@ int		main(int argv, char **argc)
 	t_stack	*b;
 
 	if (argv == 1)
+	{
+		printf("the programme quit.");
 		exit(0);
+	}
 	else if ((i = check_input_int(argv, argc)) == 0)
 	{
-		write(3, "Error int\n", 10);
+		write(2, "Error int\n", 10);
 		exit(0);
 	}
 	else if ((i = check_dups(argc)) == 0)
 	{
-		write(3, "Error dup\n", 10);
+		write(2, "Error dup\n", 10);
 		exit(0);
 	}
 	else if ((i = check_maxmin(argc)) == 0)
 	{
-		write(3, "Error max\n", 10);
+		write(2, "Error max\n", 10);
 		exit(0);
 	}
 	a = create_master();
 	b = create_master();
-	populate_list(a, argc);
+	populate_list(&a, argc);
 
-	//receive a list of instructions from stdin/pushswap
+	//receive a list of instructions from stdin/pushswap with gnl
 	//check instructions are formatted correctly
 	//check instructions are valid and assosc. with a function
 	
@@ -106,7 +115,5 @@ int		main(int argv, char **argc)
 
 
 	//call error function to stderror
-
-
-	
+	return (0);
 }
