@@ -1,20 +1,4 @@
-#include <string.h>
-#include <stdlib.h>
-#include "/sgoinfre/clongmor/libft/libft.h"
-#define true 1
-#define false 0
-
-typedef int bool;
-
-typedef struct s_stack 
-{
-    int             index;
-    int             value;
-    bool            master;
-    struct s_stack  *next;
-}               t_stack;
-
-
+#include "swap.h"
 
 t_stack *create_new(int value, int index)
 {
