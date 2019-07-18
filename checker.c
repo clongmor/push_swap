@@ -5,11 +5,13 @@ int		check_input_int(int len, char **list)
 	int	i;
 	int	j;
 
-	j = 0;
 	i = 1;
 	while (i < (len))
 	{
-		while (list[i][j] != '\0')
+		if (!(list[i][0]))
+			return (0);
+		j = 0;
+		while (list[i][j])
 		{
 			if (ft_isdigit(list[i][j]) == false)
 				return (0);
@@ -49,7 +51,7 @@ void	populate_list(t_stack **stack, char **list)
 	while (list[i])
 	{
 		j = ft_atoi(list[i]);
-		birth_to_parent(stack, j, i - 1);
+		birth_to_parent(stack, j, i);
 		i++;
 	}
 }

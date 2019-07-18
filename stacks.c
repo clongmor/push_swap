@@ -48,7 +48,7 @@ void	update_index(t_stack **stack)
 	t_stack	*head;
 	int	i;
 
-	i = 0;
+	i = 1;
 	head = *stack;
 	head = head->next;
 	while (head)
