@@ -78,12 +78,45 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
+void		execute_instruction(char *buff, t_stack **a, t_stack **b)
+{
+	if ((strncmp(buff, "sa", 2) == 0))
+		sa(a);
+	else if (strncmp(buff, "sb", 2) == 0)
+		sb(b);
+	else if (strncmp(buff, "ss", 2) == 0)
+		ss(a, b);
+	else if (strncmp(buff, "pa", 2) == 0)
+		pa(b, a);
+	else if (strncmp(buff, "pb", 2) == 0)
+		pb(a, b);
+	else if (strncmp(buff, "ra", 2) == 0)
+		ra(a);
+	else if (strncmp(buff, "rb", 2) == 0)
+		rb(b);
+	else if (strncmp(buff, "rra", 3) == 0)
+		rra(a);
+	else if (strncmp(buff, "rrb", 3) == 0)
+		rrb(b);
+	else if (strncmp(buff, "rrr", 3) == 0)
+		rrr(a, b);
+	else if (strncmp(buff, "rr", 2) == 0)
+		rr(a, b);
+}
+
 int		main(int argv, char **argc)
 {
 	int 	i;
 	t_stack	*a;
 	t_stack	*b;
+	t_stack	*a_head;
+	t_stack	*b_head;
 
+	char	**line;
+	char	buff[4];
+
+	if (!(line = malloc(sizeof(char**) * 1)))
+		exit(0);
 	if (argv == 1)
 	{
 		printf("the programme quit.");
@@ -107,7 +140,28 @@ int		main(int argv, char **argc)
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
-
+	//while ((i = get_next_line(0, line)) == 1);
+	while ((i = read(0, buff, 4)) > 0)
+	{
+		if (strncmp(buff, "q", 1) == 0)
+			break ;
+		execute_instruction(buff, &a, &b);
+		a_head = a;
+		while (a != NULL)
+		{
+			printf("list a has: %d\n", a->value);
+			a = a->next;
+		}
+		a = a_head;
+		printf("\n");
+		b_head = b;
+		while (b != NULL)
+		{
+			printf("list b has: %d\n", b->value);
+			b = b->next;
+		}
+		b = b_head;
+	}
 	//receive a list of instructions from stdin/pushswap with gnl
 	//check instructions are formatted correctly
 	//check instructions are valid and assosc. with a function

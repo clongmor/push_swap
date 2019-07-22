@@ -2,7 +2,8 @@
 # define SWAP_H
 # include <string.h>
 # include <stdlib.h>
-# include "/sgoinfre/clongmor/libft/libft.h"
+# include "/sgoinfre/clongmor/temp/libft/libft.h"
+# include "/sgoinfre/clongmor/temp/libft/get_next_line.h"
 # include <stdio.h>
 # define true 1
 # define false 0
