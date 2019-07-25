@@ -80,28 +80,59 @@ int		check_maxmin(char **list)
 
 void		execute_instruction(char *buff, t_stack **a, t_stack **b)
 {
-	if ((strncmp(buff, "sa", 2) == 0))
+	if ((strcmp(buff, "sa\n") == 0))
 		sa(a);
-	else if (strncmp(buff, "sb", 2) == 0)
+	else if (strcmp(buff, "sb\n") == 0)
 		sb(b);
-	else if (strncmp(buff, "ss", 2) == 0)
+	else if (strcmp(buff, "ss\n") == 0)
 		ss(a, b);
-	else if (strncmp(buff, "pa", 2) == 0)
+	else if (strcmp(buff, "pa\n") == 0)
 		pa(b, a);
-	else if (strncmp(buff, "pb", 2) == 0)
+	else if (strcmp(buff, "pb\n") == 0)
 		pb(a, b);
-	else if (strncmp(buff, "ra", 2) == 0)
+	else if (strcmp(buff, "ra\n") == 0)
 		ra(a);
-	else if (strncmp(buff, "rb", 2) == 0)
+	else if (strcmp(buff, "rb\n") == 0)
 		rb(b);
-	else if (strncmp(buff, "rra", 3) == 0)
+	else if (strcmp(buff, "rra\n") == 0)
 		rra(a);
-	else if (strncmp(buff, "rrb", 3) == 0)
+	else if (strcmp(buff, "rrb\n") == 0)
 		rrb(b);
-	else if (strncmp(buff, "rrr", 3) == 0)
+	else if (strcmp(buff, "rrr\n") == 0)
 		rrr(a, b);
-	else if (strncmp(buff, "rr", 2) == 0)
+	else if (strcmp(buff, "rr\n") == 0)
 		rr(a, b);
+	else
+	{
+		write(2, "Error instruction\n", 18);
+		exit(0);
+	}
+}
+
+void	check_order(t_stack **a, t_stack **b)
+{
+	t_stack	*a_head;
+	t_stack	*b_head;
+
+	a_head = (*a);
+	b_head = (*b);
+
+	if ((b_head->next != NULL))
+	{
+		write(1, "KO\n", 3);
+		exit(0);
+	}
+	(*a) = (*a)->next;
+	while ((*a)->next != NULL)
+	{
+		if (!((*a)->value < (*a)->next->value))
+		{
+			write(1, "KO\n", 3);
+			exit(0);
+		}
+		(*a) = (*a)->next;
+	}
+	write(1, "OK\n", 3);
 }
 
 int		main(int argv, char **argc)
@@ -162,13 +193,8 @@ int		main(int argv, char **argc)
 		}
 		b = b_head;
 	}
+	check_order(&a, &b);
 	//receive a list of instructions from stdin/pushswap with gnl
-	//check instructions are formatted correctly
-	//check instructions are valid and assosc. with a function
-	
-	//read and apply the commands if all input it valid.
-	//write result KO/OK to output with \n
-
 
 	//call error function to stderror
 	return (0);
