@@ -135,16 +135,10 @@ void	check_order(t_stack **a, t_stack **b)
 	write(1, "OK\n", 3);
 }
 
-int		main(int argv, char **argc)
+char	**error_check_suite(int argv, char **argc)
 {
-	int 	i;
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*a_head;
-	t_stack	*b_head;
-
+	int		i;
 	char	**line;
-	char	buff[4];
 
 	if (!(line = malloc(sizeof(char**) * 1)))
 		exit(0);
@@ -168,6 +162,20 @@ int		main(int argv, char **argc)
 		write(2, "Error max\n", 10);
 		exit(0);
 	}
+	return (line);
+}
+
+int		main(int argv, char **argc)
+{
+	int 	i;
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*a_head;
+	t_stack	*b_head;
+	char	**line;
+	char	buff[5];
+
+	line = error_check_suite(argv, argc);
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
@@ -195,7 +203,5 @@ int		main(int argv, char **argc)
 	}
 	check_order(&a, &b);
 	//receive a list of instructions from stdin/pushswap with gnl
-
-	//call error function to stderror
 	return (0);
 }

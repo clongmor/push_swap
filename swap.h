@@ -44,9 +44,13 @@ void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
 
+void        execute_instruction(char *buff, t_stack **a, t_stack **b);
+void        check_order(t_stack **a, t_stack **b);
+
 //errors
 int			check_input_int(int len, char **list);
 int			check_dups(char **list);
 int			check_maxmin(char **list);
+char        **error_check_suite(int argv, char **argc);
 
 #endif
