@@ -56,3 +56,17 @@ void	update_index(t_stack **stack)
 		head = head->next;
 	}
 }
+
+void	populate_list(t_stack **stack, char **list)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (list[i])
+	{
+		j = ft_atoi(list[i]);
+		birth_to_parent(stack, j, i);
+		i++;
+	}
+}

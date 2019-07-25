@@ -5,10 +5,10 @@ NAME_C = checker
 NAME_L = libft_o
 
 SRCS_P = s_functions.c rr_functions.c r_functions.c p_functions.c stacks.c\
-		./libft/libft.a checker_main.c
+		./libft/libft.a checker_main.c error_check.c
 
 SRCS_C = s_functions.c rr_functions.c r_functions.c p_functions.c stacks.c\
-		 ./libft/libft.a checker_main.c
+		 ./libft/libft.a checker_main.c error_check.c
 
 FLAGS = -Wall -Wextra -Werror
 
