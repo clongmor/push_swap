@@ -62,17 +62,17 @@ int		main(int argv, char **argc)
 	int 	i;
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*a_head;
-	t_stack	*b_head;
+	//t_stack	*a_head;
+	//t_stack	*b_head;
 	char	**line;
-	char	buff[5];
+	//char	buff[5];
 
 	line = error_check_suite(argv, argc);
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
-	//while ((i = get_next_line(0, line)) == 1);
-	while ((i = read(0, buff, 4)) > 0)
+	while ((i = get_next_line(0, line)) == 1);
+	/*while ((i = read(0, buff, 4)) > 0)
 	{
 		if (strncmp(buff, "q", 1) == 0)
 			break ;
@@ -93,7 +93,13 @@ int		main(int argv, char **argc)
 		}
 		b = b_head;
 	}
-	check_order(&a, &b);
+	check_order(&a, &b);*/
 	//receive a list of instructions from stdin/pushswap with gnl
+	i = 0;
+	while (line[i])
+	{
+		printf("%s\n", line[i]);
+		i++;
+	}
 	return (0);
 }

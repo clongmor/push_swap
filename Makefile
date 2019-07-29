@@ -21,7 +21,7 @@ all: $(NAME_P)
 $(NAME_L):
 	make re -C libft 
 
-$(NAME_P): $(NAME_L) $(NAME_C)
+$(NAME_P): $(NAME_C)
 	gcc $(SRCS_P) $(FlAGS) -o $(NAME_P)
 
 $(NAME_C):

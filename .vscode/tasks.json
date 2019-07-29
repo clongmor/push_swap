@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "gcc build active file",
-            "command": "gcc stacks.c checker.c -g libft/libft.a -o push_swap",
+            "command": "gcc stacks.c checker_main.c s_functions.c rr_functions.c r_functions.c p_functions.c error_check.c -g libft/libft.a -o push_swap",
             "group": {
                 "kind": "build",
                 "isDefault": true
