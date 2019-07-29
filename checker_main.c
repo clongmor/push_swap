@@ -78,7 +78,7 @@ int		main(int argv, char **argc)
 		a_head = a;
 		while (a != NULL)
 		{
-			printf("list a has: %d\n", a->value);
+			printf("A: %d\n", a->value);
 			a = a->next;
 		}
 		a = a_head;
@@ -86,7 +86,7 @@ int		main(int argv, char **argc)
 		b_head = b;
 		while (b != NULL)
 		{
-			printf("list b has: %d\n", b->value);
+			printf("B: %d\n", b->value);
 			b = b->next;
 		}
 		b = b_head;
