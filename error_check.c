@@ -64,12 +64,12 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
-char	**error_check_suite(int argv, char **argc)
+char	*error_check_suite(int argv, char **argc)
 {
 	int		i;
-	char	**line;
+	char	*line;
 
-	if (!(line = malloc(sizeof(char**) * 1)))
+	if (!(line = malloc(sizeof(char*) * 1)))
 		exit(0);
 	if (argv == 1)
 	{

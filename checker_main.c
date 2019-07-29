@@ -2,27 +2,27 @@
 
 void		execute_instruction(char *buff, t_stack **a, t_stack **b)
 {
-	if ((strcmp(buff, "sa\n") == 0))
+	if ((strcmp(buff, "sa") == 0))
 		sa(a);
-	else if (strcmp(buff, "sb\n") == 0)
+	else if (strcmp(buff, "sb") == 0)
 		sb(b);
-	else if (strcmp(buff, "ss\n") == 0)
+	else if (strcmp(buff, "ss") == 0)
 		ss(a, b);
-	else if (strcmp(buff, "pa\n") == 0)
+	else if (strcmp(buff, "pa") == 0)
 		pa(b, a);
-	else if (strcmp(buff, "pb\n") == 0)
+	else if (strcmp(buff, "pb") == 0)
 		pb(a, b);
-	else if (strcmp(buff, "ra\n") == 0)
+	else if (strcmp(buff, "ra") == 0)
 		ra(a);
-	else if (strcmp(buff, "rb\n") == 0)
+	else if (strcmp(buff, "rb") == 0)
 		rb(b);
-	else if (strcmp(buff, "rra\n") == 0)
+	else if (strcmp(buff, "rra") == 0)
 		rra(a);
-	else if (strcmp(buff, "rrb\n") == 0)
+	else if (strcmp(buff, "rrb") == 0)
 		rrb(b);
-	else if (strcmp(buff, "rrr\n") == 0)
+	else if (strcmp(buff, "rrr") == 0)
 		rrr(a, b);
-	else if (strcmp(buff, "rr\n") == 0)
+	else if (strcmp(buff, "rr") == 0)
 		rr(a, b);
 	else
 	{
@@ -62,21 +62,19 @@ int		main(int argv, char **argc)
 	int 	i;
 	t_stack	*a;
 	t_stack	*b;
-	//t_stack	*a_head;
-	//t_stack	*b_head;
-	char	**line;
-	//char	buff[5];
+	t_stack	*a_head;
+	t_stack	*b_head;
+	char	*line;
 
 	line = error_check_suite(argv, argc);
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
-	while ((i = get_next_line(0, line)) == 1);
-	/*while ((i = read(0, buff, 4)) > 0)
+	while ((i = get_next_line(0, &line)) == 1)
 	{
-		if (strncmp(buff, "q", 1) == 0)
+		if (strncmp(line, "q", 1) == 0)
 			break ;
-		execute_instruction(buff, &a, &b);
+		execute_instruction(line, &a, &b);
 		a_head = a;
 		while (a != NULL)
 		{
@@ -93,13 +91,6 @@ int		main(int argv, char **argc)
 		}
 		b = b_head;
 	}
-	check_order(&a, &b);*/
-	//receive a list of instructions from stdin/pushswap with gnl
-	i = 0;
-	while (line[i])
-	{
-		printf("%s\n", line[i]);
-		i++;
-	}
+	check_order(&a, &b);
 	return (0);
 }

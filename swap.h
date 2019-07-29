@@ -51,6 +51,6 @@ void        check_order(t_stack **a, t_stack **b);
 int			check_input_int(int len, char **list);
 int			check_dups(char **list);
 int			check_maxmin(char **list);
-char        **error_check_suite(int argv, char **argc);
+char        *error_check_suite(int argv, char **argc);
 
 #endif
