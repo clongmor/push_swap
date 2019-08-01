@@ -70,6 +70,7 @@ int		main(int argv, char **argc)
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
+	//free
 	while ((i = get_next_line(0, &line)) == 1)
 	{
 		if (strncmp(line, "q", 1) == 0)

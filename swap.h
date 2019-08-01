@@ -27,7 +27,6 @@ void		birth_to_parent(t_stack **parent, int value, int index);
 void		populate_list(t_stack **stack, char **list);
 
 //update lists during ordering
-void		update_index(t_stack **stack);
 void		push(t_stack **sender_stack, t_stack **reciver_stack);
 void		pa(t_stack **b, t_stack **a);
 void		pb(t_stack **a, t_stack **b);
@@ -46,6 +45,7 @@ void		rrr(t_stack **a, t_stack **b);
 
 void        execute_instruction(char *buff, t_stack **a, t_stack **b);
 void        check_order(t_stack **a, t_stack **b);
+void		update_index(t_stack **stack);
 
 //errors
 int			check_input_int(int len, char **list);
