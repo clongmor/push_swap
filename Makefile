@@ -5,7 +5,8 @@ NAME_C = checker
 NAME_L = libft_o
 
 SRCS_P = s_functions.c rr_functions.c r_functions.c p_functions.c stacks.c\
-		./libft/libft.a checker_main.c error_check.c
+		./libft/libft.a error_check.c list_partition.c algo_small.c\
+		push_swap_main.c
 
 SRCS_C = s_functions.c rr_functions.c r_functions.c p_functions.c stacks.c\
 		 ./libft/libft.a checker_main.c error_check.c

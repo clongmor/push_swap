@@ -26,6 +26,11 @@ t_stack		*create_master();
 void		birth_to_parent(t_stack **parent, int value, int index);
 void		populate_list(t_stack **stack, char **list);
 
+//list partitioning
+int         max_num(t_stack *a);
+int         min_num(t_stack *a);
+int         range_num(int max, int min);
+
 //update lists during ordering
 void		push(t_stack **sender_stack, t_stack **reciver_stack);
 void		pa(t_stack **b, t_stack **a);
@@ -46,6 +51,11 @@ void		rrr(t_stack **a, t_stack **b);
 void        execute_instruction(char *buff, t_stack **a, t_stack **b);
 void        check_order(t_stack **a, t_stack **b);
 void		update_index(t_stack **stack);
+int         check_sorted(t_stack *stack_a);
+
+//algos
+void        len_3(t_stack **stack_a);
+
 
 //errors
 int			check_input_int(int len, char **list);

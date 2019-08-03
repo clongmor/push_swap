@@ -1,14 +1,5 @@
 #include "swap.h"
 
-int		check_sorted(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*a_head;
-	t_stack	*b_head;
-
-	b_head = *stack_b;
-	a_head = *stack_b;
-}
-
 int		check_input_int(int len, char **list)
 {
 	int	i;
