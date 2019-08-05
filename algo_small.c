@@ -2,45 +2,33 @@
 
 void		len_3(t_stack **stack_a)
 {
-	t_stack *head_a;
-	t_stack	*a_head;
+	t_stack *first;
+	t_stack	*second;
+	t_stack	*third;
 
-	head_a = (*stack_a);
-	(*stack_a) = (*stack_a)->next;
-	if (((*stack_a)->value) > (*stack_a)->next->value)
+	first = (*stack_a)->next;
+	second = (*stack_a)->next->next;
+	third = (*stack_a)->next->next->next;
+	if (first->value > second->value)
 	{
-		if ((*stack_a)->value > (*stack_a)->next->next->value)
+		if (first->value > third->value)
 		{
-			if ((*stack_a)->next->value > (*stack_a)->next->next->value)
+			if (second->value > third->value)
 			{
-				sa(stack_a);
-				rra(stack_a);
-				write(1, "sa\n", 3);
-				write(1, "rra\n", 4);
+				push_sa(stack_a);
+				push_rra(stack_a);
 			}
 			else
-			{
-				ra(stack_a);
-				write(1, "ra\n", 3);
-			}
+				push_ra(stack_a);
 		}
 		else
-		{
-			sa(stack_a);
-			write(1, "sa\n", 3);
-		}
+			push_sa(stack_a);
 	}
-	else if ((*stack_a)->value > (*stack_a)->next->next->value)
-	{
-		rra(stack_a);
-		write(1, "rra\n", 4);
-	}
+	else if (first->value > third->value)
+		push_rra(stack_a);
 	else
 	{
-		sa(stack_a);
-		ra(stack_a);
-		write(1, "sa\n", 3);
-		write(1, "ra\n", 3);
+		push_sa(stack_a);
+		push_ra(stack_a);
 	}
-	(*stack_a) = head_a;
 }

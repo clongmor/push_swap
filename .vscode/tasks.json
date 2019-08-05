@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "gcc build active file",
-            "command": "gcc stacks.c checker_main.c s_functions.c rr_functions.c r_functions.c p_functions.c error_check.c -g libft/libft.a -o push_swap",
+            "command": "gcc stacks.c s_functions.c rr_functions.c r_functions.c p_functions.c error_check.c list_partition.c algo_small.c push_swap_main.c push_p_functions.c push_r_functions.c push_rr_functions.c push_s_functions.c -g libft/libft.a -o push_swap",
             "group": {
                 "kind": "build",
                 "isDefault": true

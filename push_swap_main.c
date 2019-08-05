@@ -34,22 +34,22 @@ int		main(int argv, char **argc)
 	b = create_master();
 	populate_list(&a, argc);
 	if ((sorted = check_sorted(a)) == 1)
-		return (0); // how to hanlde if list is sorted and no instructions needed?
+		return (0); // how to handle if list is sorted and no instructions needed?
 	apply_algo(argv, &a, &b);
-	a_head = a;
-	while (a != NULL)
-	{
-		printf("A: %d\n", a->value);
-		a = a->next;
-	}
-	a = a_head;
-	printf("\n");
-	b_head = b;
-	while (b != NULL)
-	{
-		printf("B: %d\n", b->value);
-		b = b->next;
-	}
-	b = b_head;
+	// a_head = a;
+	// while (a != NULL)
+	// {
+	// 	printf("A: %d\n", a->value);
+	// 	a = a->next;
+	// }
+	// a = a_head;
+	// printf("\n");
+	// b_head = b;
+	// while (b != NULL)
+	// {
+	// 	printf("B: %d\n", b->value);
+	// 	b = b->next;
+	// }
+	// b = b_head;
 	return (0);
 }

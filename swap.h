@@ -31,7 +31,7 @@ int         max_num(t_stack *a);
 int         min_num(t_stack *a);
 int         range_num(int max, int min);
 
-//update lists during ordering
+//update lists during ordering - checker
 void		push(t_stack **sender_stack, t_stack **reciver_stack);
 void		pa(t_stack **b, t_stack **a);
 void		pb(t_stack **a, t_stack **b);
@@ -47,6 +47,20 @@ void		rev_rotate(t_stack **stack);
 void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
+
+//update lists during ordering - push_swap
+void	    push_pa(t_stack **b, t_stack **a);
+void	    push_pb(t_stack **a, t_stack **b);
+void	    push_ra(t_stack **a);
+void	    push_rb(t_stack **b);
+void	    push_rr(t_stack **a, t_stack **b);
+void	    push_rra(t_stack **a);
+void	    push_rrb(t_stack **b);
+void	    push_rrr(t_stack **a, t_stack **b);
+void	    push_sa(t_stack **a);
+void 	    push_sb(t_stack **b);
+void	    push_ss(t_stack **a, t_stack **b);
+
 
 void        execute_instruction(char *buff, t_stack **a, t_stack **b);
 void        check_order(t_stack **a, t_stack **b);
