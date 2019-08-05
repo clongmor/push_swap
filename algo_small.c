@@ -9,6 +9,8 @@ void		len_3(t_stack **stack_a)
 	first = (*stack_a)->next;
 	second = (*stack_a)->next->next;
 	third = (*stack_a)->next->next->next;
+	if ((check_sorted(*stack_a)) == 1)
+		return ;
 	if (second != NULL && first->value > second->value)
 	{
 		if (third != NULL && first->value > third->value)
@@ -30,5 +32,37 @@ void		len_3(t_stack **stack_a)
 	{
 		push_sa(stack_a);
 		push_ra(stack_a);
+	}
+}
+
+void	len_5(t_stack **a, t_stack **b)
+{
+	t_stack	*a_first;
+	t_stack	*b_first;
+	int	max;
+
+	push_pb(a, b);
+	push_pb(a, b);
+	len_3(a);
+	a_first = (*a)->next;
+	b_first	= (*b)->next;
+	max = max_num(*a);
+	while (b_first != NULL)
+	{
+		if (b_first->value < a_first->value)
+			push_pa(b, a);
+		else if (b_first->value > max)
+		{
+			push_pa(a, b);
+			push_ra(a);
+			max = b_first->value;
+		}
+		else while (b_first->value > a_first->value && a_first->value != max)
+		{ 
+			push_ra(a);
+		}
+		push_pa(b, a);
+		a_first = (*a)->next;
+		b_first = (*b)->next;
 	}
 }

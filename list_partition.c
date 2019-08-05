@@ -6,7 +6,7 @@ int	max_num(t_stack *a)
 
 	a = a->next;
 	max = a->value;
-	while (a->next != NULL)
+	while (a != NULL)
 	{
 		if (a->value > max)
 			max = a->value;

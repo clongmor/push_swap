@@ -69,7 +69,7 @@ int         check_sorted(t_stack *stack_a);
 
 //algos
 void        len_3(t_stack **stack_a);
-
+void	    len_5(t_stack **a, t_stack **b);
 
 //errors
 int			check_input_int(int len, char **list);

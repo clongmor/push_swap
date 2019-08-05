@@ -16,6 +16,8 @@ void	apply_algo(int argv, t_stack **a, t_stack **b)
 {
 	if (argv == 3 || argv == 4)
 		len_3(a);
+	else if (argv == 6)
+		len_5(a, b);
 	//if (argv > 4 && argv < 10)
 		//do something
 }
@@ -34,7 +36,7 @@ int		main(int argv, char **argc)
 	b = create_master();
 	populate_list(&a, argc);
 	if ((sorted = check_sorted(a)) == 1)
-		return (0); 
+		return (0);
 	apply_algo(argv, &a, &b);
 	// a_head = a;
 	// while (a != NULL)
