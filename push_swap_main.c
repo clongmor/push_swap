@@ -14,7 +14,7 @@ int		check_sorted(t_stack *stack_a)
 
 void	apply_algo(int argv, t_stack **a, t_stack **b)
 {
-	if (argv == 4)
+	if (argv == 3 || argv == 4)
 		len_3(a);
 	//if (argv > 4 && argv < 10)
 		//do something
@@ -34,7 +34,7 @@ int		main(int argv, char **argc)
 	b = create_master();
 	populate_list(&a, argc);
 	if ((sorted = check_sorted(a)) == 1)
-		return (0); // how to handle if list is sorted and no instructions needed?
+		return (0); 
 	apply_algo(argv, &a, &b);
 	// a_head = a;
 	// while (a != NULL)

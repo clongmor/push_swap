@@ -9,9 +9,9 @@ void		len_3(t_stack **stack_a)
 	first = (*stack_a)->next;
 	second = (*stack_a)->next->next;
 	third = (*stack_a)->next->next->next;
-	if (first->value > second->value)
+	if (second != NULL && first->value > second->value)
 	{
-		if (first->value > third->value)
+		if (third != NULL && first->value > third->value)
 		{
 			if (second->value > third->value)
 			{
