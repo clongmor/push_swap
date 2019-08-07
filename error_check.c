@@ -13,6 +13,8 @@ int		check_input_int(int len, char **list)
 		j = 0;
 		while (list[i][j])
 		{
+			if (list[i][j] == '-' && ft_isdigit(list[i][j + 1]) == true)
+				j++;
 			if (ft_isdigit(list[i][j]) == false)
 				return (0);
 			j++;

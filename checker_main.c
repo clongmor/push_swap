@@ -90,6 +90,7 @@ int		main(int argv, char **argc)
 			printf("B: %d\n", b->value);
 			b = b->next;
 		}
+		printf("\n");
 		b = b_head;
 	}
 	check_order(&a, &b);

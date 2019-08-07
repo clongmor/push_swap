@@ -37,3 +37,13 @@ int	range_num(int max, int min)
 	range = max - min + 1;
 	return (range);
 }
+
+int	last_val(t_stack **a)
+{
+	t_stack	*lst;
+
+	lst = (*a)->next;
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst->value);
+}

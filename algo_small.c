@@ -39,6 +39,7 @@ void	len_5(t_stack **a, t_stack **b)
 {
 	t_stack	*a_first;
 	t_stack	*b_first;
+	int		last;
 	int	max;
 
 	push_pb(a, b);
@@ -49,8 +50,11 @@ void	len_5(t_stack **a, t_stack **b)
 	max = max_num(*a);
 	while (b_first != NULL)
 	{
-		if (b_first->value < a_first->value)
+		last = last_val(a);
+		if (b_first->value < a_first->value && b_first->value > last)
 			push_pa(b, a);
+		else if (b_first->value < a_first->value && b_first->value < last)
+			push_rra(a);
 		else if (b_first->value > max)
 		{
 			push_pa(a, b);
@@ -58,11 +62,20 @@ void	len_5(t_stack **a, t_stack **b)
 			max = b_first->value;
 		}
 		else while (b_first->value > a_first->value && a_first->value != max)
-		{ 
+		{
 			push_ra(a);
+			a_first = (*a)->next;
+			b_first	= (*b)->next;
 		}
-		push_pa(b, a);
 		a_first = (*a)->next;
 		b_first = (*b)->next;
+	}
+	a_first = (*a)->next;
+	last = last_val(a);
+	while (a_first->value > last)
+	{
+		push_rra(a);
+		a_first = (*a)->next;
+		last = last_val(a);
 	}
 }
