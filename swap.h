@@ -31,6 +31,7 @@ int         max_num(t_stack *a);
 int         min_num(t_stack *a);
 int         range_num(int max, int min);
 int         last_val(t_stack **a);
+int	        min_index(t_stack *a);
 
 //update lists during ordering - checker
 void		push(t_stack **sender_stack, t_stack **reciver_stack);
@@ -70,7 +71,7 @@ int         check_sorted(t_stack *stack_a);
 
 //algos
 void        len_3(t_stack **stack_a);
-void	    len_5(t_stack **a, t_stack **b);
+void	    len_5(t_stack **a, t_stack **b, int argv);
 
 //errors
 int			check_input_int(int len, char **list);

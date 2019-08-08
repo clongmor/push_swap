@@ -21,13 +21,33 @@ int	min_num(t_stack *a)
 
 	a = a->next;
 	min = a->value;
-	while (a->next != NULL)
+	while (a != NULL)
 	{
 		if (a->value < min)
 			min = a->value;
 		a = a->next;
 	}
 	return (min);
+}
+
+int	min_index(t_stack *a)
+{
+	int	min;
+	int	min_index;
+
+	a = a->next;
+	min = a->value;
+	min_index = a->index;
+	while (a != NULL)
+	{
+		if (a->value < min)
+		{
+			min = a->value;
+			min_index = a->index;
+		}
+		a = a->next;
+	}
+	return (min_index);
 }
 
 int	range_num(int max, int min)

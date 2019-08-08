@@ -51,3 +51,6 @@ becomes the first one.
 rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element
 becomes the first one.
 rrr : rra and rrb at the same time.
+
+
+for 5 try push out two smallest numbers into b and then run len 3.

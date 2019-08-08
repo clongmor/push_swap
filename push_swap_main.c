@@ -16,8 +16,8 @@ void	apply_algo(int argv, t_stack **a, t_stack **b)
 {
 	if (argv == 3 || argv == 4)
 		len_3(a);
-	else if (argv == 6)
-		len_5(a, b);
+	else if (argv == 6 || argv == 5)
+		len_5(a, b, argv);
 	//if (argv > 4 && argv < 10)
 		//do something
 }
