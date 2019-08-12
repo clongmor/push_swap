@@ -50,20 +50,30 @@ int	min_index(t_stack *a)
 	return (min_index);
 }
 
+int	max_index(t_stack *a)
+{
+	int	max;
+	int	max_index;
+
+	a = a->next;
+	max = a->value;
+	max_index = a->index;
+	while (a != NULL)
+	{
+		if (a->value > max)
+		{
+			max = a->value;
+			max_index = a->index;
+		}
+		a = a->next;
+	}
+	return (max_index);
+}
+
 int	range_num(int max, int min)
 {
 	int	range;
 
 	range = max - min + 1;
 	return (range);
-}
-
-int	last_val(t_stack **a)
-{
-	t_stack	*lst;
-
-	lst = (*a)->next;
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst->value);
 }
