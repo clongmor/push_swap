@@ -31,6 +31,8 @@ int         max_num(t_stack *a);
 int         min_num(t_stack *a);
 int         range_num(int max, int min);
 int	        min_index(t_stack *a);
+int         max_index(t_stack *a);
+int         lstlength(t_stack *lst);
 
 //update lists during ordering - checker
 void		push(t_stack **sender_stack, t_stack **reciver_stack);

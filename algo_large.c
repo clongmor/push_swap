@@ -14,21 +14,21 @@
 void	len_100(t_stack **a, t_stack **b, int argv)
 {
 	int range;
-	int	mid;
-	int	min;
+	int max;
+	int	range_p;
 	t_stack	*group_top;
 	t_stack	*group_bot;
 	t_stack	*a_first;
 
 	a_first = (*a)->next;
-	min = min_num(*a);
-	mid = argv/2;
-	range = (range_num(max_num(*a), min) + 1)/5;
+	max = max_num(*a);
+	range = (range_num(max, min_num(*a)) + 1)/5;
+	range_p = range;
 	while ((*a)->next != NULL)
 	{
 		while (a_first != NULL)
 		{
-			group_top == NULL;
+			group_top = NULL;
 			if (a_first->value < range)
 			{
 				group_top = a_first;
@@ -45,20 +45,57 @@ void	len_100(t_stack **a, t_stack **b, int argv)
 			}
 		else
 		{
-			range += range;
+			range += range_p;
+			a_first = (*a)->next;
 			continue ;
 		}
 		a_first = (*a)->next;
-		if (((argv - 1) - group_bot->index) < group_top->index)
+		if (((lstlength(a_first)) - group_bot->index) < group_top->index)
+		{
 			while (a_first->value != group_bot->value)
 			{
 				push_rra(a);
 				a_first = (*a)->next;
 			}
-		else while (a_first->value != group_top->value)
-		{
-			push_ra(a);
+			push_pb(a, b);
 			a_first = (*a)->next;
+		}
+		else 
+		{
+			while (a_first->value != group_top->value)
+			{
+				push_ra(a);
+				a_first = (*a)->next;
+			}
+			push_pb(a, b);
+			a_first = (*a)->next;
+		}
+	}
+	while ((*b)->next != NULL)
+	{
+		max = max_index(*b);
+		a_first = (*b)->next;
+		if (((lstlength(a_first)) - max) < lstlength(a_first)/2)
+		{
+			max = max_num(*b);
+			while (a_first->value != max)
+			{
+				push_rrb(b);
+				a_first = (*b)->next;
+			}
+			push_pa(b, a);
+			a_first = (*b)->next;
+		}
+		else 
+		{
+			max = max_num(*b);
+			while (a_first->value != max)
+			{
+				push_rb(b);
+				a_first = (*b)->next;
+			}
+			push_pa(b, a);
+			a_first = (*b)->next;
 		}
 	}
 }

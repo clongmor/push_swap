@@ -18,6 +18,8 @@ void	apply_algo(int argv, t_stack **a, t_stack **b)
 		len_3(a);
 	else if (argv == 6 || argv == 5)
 		len_5(a, b, argv);
+	else if (argv > 9 && argv <= 101)
+		len_100(a, b, argv);
 	//if (argv > 4 && argv < 10)
 		//do something
 }
@@ -55,3 +57,5 @@ int		main(int argv, char **argc)
 	// b = b_head;
 	return (0);
 }
+//to run visualiser
+//python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
