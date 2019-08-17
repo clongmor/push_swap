@@ -21,7 +21,7 @@ t_stack	*create_new(int value, int index)
 	new->next = NULL;
 	new->value = value;
 	new->index = index;
-	new->master = false;
+	new->master = FALSE;
 	return (new);
 }
 
@@ -31,7 +31,7 @@ t_stack	*create_master(void)
 
 	if (!(master = create_new(0, 0)))
 		return (NULL);
-	master->master = true;
+	master->master = TRUE;
 	return (master);
 }
 

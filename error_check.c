@@ -25,9 +25,9 @@ int		check_input_int(int len, char **list)
 		j = 0;
 		while (list[i][j])
 		{
-			if (list[i][j] == '-' && ft_isdigit(list[i][j + 1]) == true)
+			if (list[i][j] == '-' && ft_isdigit(list[i][j + 1]) == TRUE)
 				j++;
-			if (ft_isdigit(list[i][j]) == false)
+			if (ft_isdigit(list[i][j]) == FALSE)
 				return (0);
 			j++;
 		}
