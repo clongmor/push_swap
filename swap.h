@@ -73,7 +73,9 @@ int         check_sorted(t_stack *stack_a);
 //algos
 void        len_3(t_stack **stack_a);
 void	    len_5(t_stack **a, t_stack **b, int argv);
-void        len_100(t_stack **a, t_stack **b, int argv);
+void        len_100_tob(t_stack **a, t_stack **b, t_stack *group_bot, t_stack *group_top);
+void	    len_100_toa(t_stack **a, t_stack **b);
+void	    len_100_check_num(t_stack **a, t_stack **b);
 
 
 //errors
