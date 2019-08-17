@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rr_functions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:13:19 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:14:05 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 void	rev_rotate(t_stack **stack)
@@ -6,7 +18,6 @@ void	rev_rotate(t_stack **stack)
 	t_stack	*last;
 
 	head = (*stack);
-
 	if (!(head->next) || !(head->next->next))
 		return ;
 	while (head->next != NULL)
@@ -23,6 +34,7 @@ void	rev_rotate(t_stack **stack)
 	last->next = (*stack)->next;
 	(*stack)->next = last;
 }
+
 void	rra(t_stack **a)
 {
 	rev_rotate(a);

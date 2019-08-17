@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_s_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:12:30 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:13:05 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 void	push_sa(t_stack **a)
@@ -7,7 +19,7 @@ void	push_sa(t_stack **a)
 	update_index(a);
 }
 
-void 	push_sb(t_stack **b)
+void	push_sb(t_stack **b)
 {
 	swap(b);
 	write(1, "sb\n", 3);

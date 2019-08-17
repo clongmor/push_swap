@@ -1,50 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stacks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 09:54:14 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 09:59:42 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
-t_stack *create_new(int value, int index)
+t_stack	*create_new(int value, int index)
 {
-    t_stack *new;
+	t_stack *new;
 
-    if (!(new = (t_stack *)malloc(sizeof(t_stack))))
-        return (NULL);
-    new->next = NULL;
-    new->value = value;
-    new->index = index;
-    new->master = false;
-    return (new);
+	if (!(new = (t_stack *)malloc(sizeof(t_stack))))
+		return (NULL);
+	new->next = NULL;
+	new->value = value;
+	new->index = index;
+	new->master = false;
+	return (new);
 }
 
-t_stack *create_master()
+t_stack	*create_master(void)
 {
-    t_stack *master;
+	t_stack *master;
 
-    if (!(master = create_new(0, 0)))
-        return (NULL);
-
-    master->master = true;
-
-    return (master);
+	if (!(master = create_new(0, 0)))
+		return (NULL);
+	master->master = true;
+	return (master);
 }
 
-void birth_to_parent(t_stack **parent, int value, int index)
-{ 
-    t_stack *child;
-    t_stack *cursor;
+void	birth_to_parent(t_stack **parent, int value, int index)
+{
+	t_stack *child;
+	t_stack *cursor;
 
-    if (!(child = create_new(value, index)))
-        return ;
-
-    cursor = *parent;
-
-    while (cursor->next)
-        cursor = cursor->next;
-
-    cursor->next = child;
+	if (!(child = create_new(value, index)))
+		return ;
+	cursor = *parent;
+	while (cursor->next)
+		cursor = cursor->next;
+	cursor->next = child;
 }
 
 void	update_index(t_stack **stack)
 {
 	t_stack	*head;
-	int	i;
+	int		i;
 
 	i = 1;
 	head = *stack;

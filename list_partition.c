@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_partition.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:41:53 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:41:55 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 int	max_num(t_stack *a)
@@ -78,7 +90,7 @@ int	range_num(int max, int min)
 	return (range);
 }
 
-int		lstlength(t_stack *lst)
+int	lstlength(t_stack *lst)
 {
 	int	i;
 

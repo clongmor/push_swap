@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:42:43 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 int		check_input_int(int len, char **list)
@@ -35,7 +47,7 @@ int		check_dups(char **list)
 		j = i + 1;
 		while (list[j])
 		{
-			if (ft_strcmp(list[i], list[j]) == 0) 
+			if (ft_strcmp(list[i], list[j]) == 0)
 				return (0);
 			j++;
 		}

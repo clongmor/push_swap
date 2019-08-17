@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_main.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:43:54 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
-void		execute_instruction(char *buff, t_stack **a, t_stack **b)
+void	execute_instruction(char *buff, t_stack **a, t_stack **b)
 {
 	if ((strcmp(buff, "sa") == 0))
 		sa(a);
@@ -38,7 +50,6 @@ void	check_order(t_stack **a, t_stack **b)
 
 	a_head = (*a);
 	b_head = (*b);
-
 	if ((b_head->next != NULL))
 	{
 		write(1, "KO\n", 3);
@@ -59,7 +70,7 @@ void	check_order(t_stack **a, t_stack **b)
 
 int		main(int argv, char **argc)
 {
-	int 	i;
+	int		i;
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	*a_head;

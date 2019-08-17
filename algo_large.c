@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_large.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:32:43 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:48:35 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 void	len_100_toa(t_stack **a, t_stack **b)
@@ -7,7 +19,7 @@ void	len_100_toa(t_stack **a, t_stack **b)
 	while ((*b)->next != NULL)
 	{
 		b_first = (*b)->next;
-		if (((lstlength(b_first)) - max_index(*b)) < lstlength(b_first)/2)
+		if (((lstlength(b_first)) - max_index(*b)) < lstlength(b_first) / 2)
 		{
 			while (b_first->value != max_num(*b))
 			{
@@ -17,7 +29,7 @@ void	len_100_toa(t_stack **a, t_stack **b)
 			push_pa(b, a);
 			b_first = (*b)->next;
 		}
-		else 
+		else
 		{
 			while (b_first->value != max_num(*b))
 			{
@@ -30,14 +42,14 @@ void	len_100_toa(t_stack **a, t_stack **b)
 	}
 }
 
-void	len_100_tob(t_stack **a, t_stack **b, t_stack *group_bot, t_stack *group_top)
+void	len_100_tob(t_stack **a, t_stack **b, t_stack *g_b, t_stack *g_t)
 {
 	t_stack	*a_first;
 
 	a_first = (*a)->next;
-	if (((lstlength(a_first)) - group_bot->index) < group_top->index)
+	if (((lstlength(a_first)) - g_b->index) < g_t->index)
 	{
-		while (a_first->value != group_bot->value)
+		while (a_first->value != g_b->value)
 		{
 			push_rra(a);
 			a_first = (*a)->next;
@@ -45,9 +57,9 @@ void	len_100_tob(t_stack **a, t_stack **b, t_stack *group_bot, t_stack *group_to
 		push_pb(a, b);
 		a_first = (*a)->next;
 	}
-	else 
+	else
 	{
-		while (a_first->value != group_top->value)
+		while (a_first->value != g_t->value)
 		{
 			push_ra(a);
 			a_first = (*a)->next;
@@ -59,14 +71,14 @@ void	len_100_tob(t_stack **a, t_stack **b, t_stack *group_bot, t_stack *group_to
 
 void	len_100_check_num(t_stack **a, t_stack **b)
 {
-	int range;
-	int	range_p;
+	int		range;
+	int		range_p;
 	t_stack	*group_top;
 	t_stack	*group_bot;
 	t_stack	*a_first;
 
 	a_first = (*a)->next;
-	range = (range_num(max_num(*a), min_num(*a)) + 1)/5;
+	range = (range_num(max_num(*a), min_num(*a)) + 1) / 5;
 	range_p = range;
 	while ((*a)->next != NULL)
 	{
@@ -76,12 +88,12 @@ void	len_100_check_num(t_stack **a, t_stack **b)
 			if (a_first->value < range)
 			{
 				group_top = a_first;
-				break;
+				break ;
 			}
 			a_first = a_first->next;
 		}
 		if (group_top != NULL)
-			while(a_first != NULL)
+			while (a_first != NULL)
 			{
 				if (a_first->value < range)
 					group_bot = a_first;

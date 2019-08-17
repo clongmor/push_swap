@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/17 10:14:48 by clongmor          #+#    #+#             */
+/*   Updated: 2019/08/17 10:46:15 by clongmor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SWAP_H
 # define SWAP_H
 # include <string.h>
@@ -5,20 +17,20 @@
 # include "/sgoinfre/clongmor/temp/libft/libft.h"
 # include "/sgoinfre/clongmor/temp/libft/get_next_line.h"
 # include <stdio.h>
-# define true 1
-# define false 0
+# define TRUE 1
+# define FALSE 0
 # define MAX_INT 2147483647
-# define MIN_INT -2147483648 
+# define MIN_INT -2147483648
 
-typedef int bool;
+typedef int		bool;
 
-typedef struct s_stack 
+typedef struct	s_stack
 {
-    int             index;
-    int             value;
-    bool            master;
-    struct s_stack  *next;
-}               t_stack;
+	int				index;
+	int				value;
+	bool			master;
+	struct s_stack	*next;
+}				t_stack;
 
 //create stacks
 t_stack		*create_new(int value, int index);
@@ -27,12 +39,12 @@ void		birth_to_parent(t_stack **parent, int value, int index);
 void		populate_list(t_stack **stack, char **list);
 
 //list partitioning
-int         max_num(t_stack *a);
-int         min_num(t_stack *a);
-int         range_num(int max, int min);
-int	        min_index(t_stack *a);
-int         max_index(t_stack *a);
-int         lstlength(t_stack *lst);
+int			max_num(t_stack *a);
+int			min_num(t_stack *a);
+int			range_num(int max, int min);
+int			min_index(t_stack *a);
+int			max_index(t_stack *a);
+int			lstlength(t_stack *lst);
 
 //update lists during ordering - checker
 void		push(t_stack **sender_stack, t_stack **reciver_stack);
@@ -52,36 +64,34 @@ void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
 
 //update lists during ordering - push_swap
-void	    push_pa(t_stack **b, t_stack **a);
-void	    push_pb(t_stack **a, t_stack **b);
-void	    push_ra(t_stack **a);
-void	    push_rb(t_stack **b);
-void	    push_rr(t_stack **a, t_stack **b);
-void	    push_rra(t_stack **a);
-void	    push_rrb(t_stack **b);
-void	    push_rrr(t_stack **a, t_stack **b);
-void	    push_sa(t_stack **a);
-void 	    push_sb(t_stack **b);
-void	    push_ss(t_stack **a, t_stack **b);
+void		push_pa(t_stack **b, t_stack **a);
+void		push_pb(t_stack **a, t_stack **b);
+void		push_ra(t_stack **a);
+void		push_rb(t_stack **b);
+void		push_rr(t_stack **a, t_stack **b);
+void		push_rra(t_stack **a);
+void		push_rrb(t_stack **b);
+void		push_rrr(t_stack **a, t_stack **b);
+void		push_sa(t_stack **a);
+void		push_sb(t_stack **b);
+void		push_ss(t_stack **a, t_stack **b);
 
-
-void        execute_instruction(char *buff, t_stack **a, t_stack **b);
-void        check_order(t_stack **a, t_stack **b);
+void		execute_instruction(char *buff, t_stack **a, t_stack **b);
+void		check_order(t_stack **a, t_stack **b);
 void		update_index(t_stack **stack);
-int         check_sorted(t_stack *stack_a);
+int			check_sorted(t_stack *stack_a);
 
 //algos
-void        len_3(t_stack **stack_a);
-void	    len_5(t_stack **a, t_stack **b, int argv);
-void        len_100_tob(t_stack **a, t_stack **b, t_stack *group_bot, t_stack *group_top);
-void	    len_100_toa(t_stack **a, t_stack **b);
-void	    len_100_check_num(t_stack **a, t_stack **b);
-
+void		len_3(t_stack **stack_a);
+void		len_5(t_stack **a, t_stack **b, int argv);
+void		len_100_tob(t_stack **a, t_stack **b, t_stack *g_b, t_stack *g_t);
+void		len_100_toa(t_stack **a, t_stack **b);
+void		len_100_check_num(t_stack **a, t_stack **b);
 
 //errors
 int			check_input_int(int len, char **list);
 int			check_dups(char **list);
 int			check_maxmin(char **list);
-char        *error_check_suite(int argv, char **argc);
+char		*error_check_suite(int argv, char **argc);
 
 #endif
