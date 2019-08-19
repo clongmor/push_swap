@@ -47,6 +47,7 @@ int		main(int argv, char **argc)
 	if ((sorted = check_sorted(a)) == 1)
 		return (0);
 	apply_algo(argv, &a, &b);
+	//free lists
 	return (0);
 }
 //to run visualiser

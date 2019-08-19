@@ -69,6 +69,38 @@ void	len_100_tob(t_stack **a, t_stack **b, t_stack *g_b, t_stack *g_t)
 	}
 }
 
+t_stack	*group_top_check(t_stack **a, int range)
+{
+	t_stack	*a_first;
+	t_stack	*group_top;
+
+	a_first = (*a)->next;
+	while (a_first != NULL)
+	{
+		group_top = NULL;
+		if (a_first->value < range)
+		{
+			group_top = a_first;
+			break ;
+		}
+		a_first = a_first->next;
+	}
+	return (group_top);
+}
+
+t_stack	*group_bot_check(t_stack *a_first, int range)
+{
+	t_stack	*group_bot;
+
+	while (a_first != NULL)
+	{
+		if (a_first->value < range)
+			group_bot = a_first;
+		a_first = a_first->next;
+	}
+	return (group_bot);
+}
+
 void	len_100_check_num(t_stack **a, t_stack **b)
 {
 	int		range;
@@ -82,23 +114,9 @@ void	len_100_check_num(t_stack **a, t_stack **b)
 	range_p = range;
 	while ((*a)->next != NULL)
 	{
-		while (a_first != NULL)
-		{
-			group_top = NULL;
-			if (a_first->value < range)
-			{
-				group_top = a_first;
-				break ;
-			}
-			a_first = a_first->next;
-		}
+		group_top = group_top_check(a, range);
 		if (group_top != NULL)
-			while (a_first != NULL)
-			{
-				if (a_first->value < range)
-					group_bot = a_first;
-				a_first = a_first->next;
-			}
+			group_bot = group_bot_check(a_first, range);
 		else
 		{
 			range += range_p;

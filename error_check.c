@@ -86,24 +86,32 @@ char	*error_check_suite(int argv, char **argc)
 	if (!(line = malloc(sizeof(char*) * 1)))
 		exit(0);
 	if (argv == 1)
-	{
-		printf("the programme quit.");
 		exit(0);
-	}
 	else if ((i = check_input_int(argv, argc)) == 0)
 	{
-		write(2, "Error int\n", 10);
-		exit(0);
+		ERROR;
 	}
 	else if ((i = check_dups(argc)) == 0)
 	{
-		write(2, "Error dup\n", 10);
-		exit(0);
+		ERROR;
 	}
 	else if ((i = check_maxmin(argc)) == 0)
-	{
-		write(2, "Error max\n", 10);
-		exit(0);
-	}
+		ERROR;
 	return (line);
+}
+
+int		lstlength(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	lst = lst->next;
+	if (!lst)
+		return (i);
+	while (!(lst == NULL))
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

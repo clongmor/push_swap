@@ -27,8 +27,7 @@ void	len_3(t_stack **stack_a)
 		{
 			if (second->value > third->value)
 			{
-				push_sa(stack_a);
-				push_rra(stack_a);
+				PUSH_TWICE_REV;
 			}
 			else
 				push_ra(stack_a);
@@ -39,10 +38,27 @@ void	len_3(t_stack **stack_a)
 	else if (first->value > third->value)
 		push_rra(stack_a);
 	else
+		PUSH_TWICE;
+}
+
+void	len_5_part(t_stack **a)
+{
+	t_stack	*a_first;
+
+	a_first = (*a)->next;
+	if (min_index(*a) > 3)
 	{
-		push_sa(stack_a);
-		push_ra(stack_a);
+		while (a_first->value != min_num(*a))
+		{
+			push_rra(a);
+			a_first = (*a)->next;
+		}
 	}
+		else while (a_first->value != min_num(*a))
+		{
+			push_ra(a);
+			a_first = (*a)->next;
+		}
 }
 
 void	len_5(t_stack **a, t_stack **b, int argv)
@@ -56,19 +72,7 @@ void	len_5(t_stack **a, t_stack **b, int argv)
 	a_first = (*a)->next;
 	while (i > 0)
 	{
-		if (min_index(*a) > 3)
-		{
-			while (a_first->value != min_num(*a))
-			{
-				push_rra(a);
-				a_first = (*a)->next;
-			}
-		}
-		else while (a_first->value != min_num(*a))
-		{
-			push_ra(a);
-			a_first = (*a)->next;
-		}
+		len_5_part(a);
 		push_pb(a, b);
 		a_first = (*a)->next;
 		i--;

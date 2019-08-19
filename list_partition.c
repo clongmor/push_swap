@@ -89,19 +89,3 @@ int	range_num(int max, int min)
 	range = max - min + 1;
 	return (range);
 }
-
-int	lstlength(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	lst = lst->next;
-	if (!lst)
-		return (i);
-	while (!(lst == NULL))
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}

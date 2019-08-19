@@ -37,10 +37,7 @@ void	execute_instruction(char *buff, t_stack **a, t_stack **b)
 	else if (strcmp(buff, "rr") == 0)
 		rr(a, b);
 	else
-	{
-		write(2, "Error instruction\n", 18);
-		exit(0);
-	}
+		ERROR;
 }
 
 void	check_order(t_stack **a, t_stack **b)
@@ -73,37 +70,17 @@ int		main(int argv, char **argc)
 	int		i;
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*a_head;
-	t_stack	*b_head;
 	char	*line;
 
 	line = error_check_suite(argv, argc);
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
-	//free
 	while ((i = get_next_line(0, &line)) == 1)
-	{
-		if (strncmp(line, "q", 1) == 0)
-			break ;
 		execute_instruction(line, &a, &b);
-		a_head = a;
-		while (a != NULL)
-		{
-			printf("A: %d\n", a->value);
-			a = a->next;
-		}
-		a = a_head;
-		printf("\n");
-		b_head = b;
-		while (b != NULL)
-		{
-			printf("B: %d\n", b->value);
-			b = b->next;
-		}
-		printf("\n");
-		b = b_head;
-	}
 	check_order(&a, &b);
+	//free(line);
+	//line = NULL;
+	//free lists
 	return (0);
 }
