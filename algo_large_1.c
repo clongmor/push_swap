@@ -27,7 +27,6 @@ void	len_100_toa(t_stack **a, t_stack **b)
 				b_first = (*b)->next;
 			}
 			push_pa(b, a);
-			b_first = (*b)->next;
 		}
 		else
 		{
@@ -37,8 +36,8 @@ void	len_100_toa(t_stack **a, t_stack **b)
 				b_first = (*b)->next;
 			}
 			push_pa(b, a);
-			b_first = (*b)->next;
 		}
+		b_first = (*b)->next;
 	}
 }
 

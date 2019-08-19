@@ -28,10 +28,16 @@ void	apply_algo(int argv, t_stack **a, t_stack **b)
 {
 	if (argv == 3 || argv == 4)
 		len_3(a);
-	else if (argv == 6 || argv == 5)
+	else if (argv < 8 && argv > 4)
 		len_5(a, b, argv);
-	else if (argv > 9 && argv <= 101)
+	else if (argv > 7 && argv <= 21)
+		len_20_check_num(a, b);
+	else if (argv > 21 && argv <= 101)
 		len_100_check_num(a, b);
+	else if (argv > 101 && argv <= 501)
+		len_500_check_num(a, b);
+	else if (argv > 501)
+		len_infinite(a, b);
 }
 
 int		main(int argv, char **argc)
@@ -50,6 +56,3 @@ int		main(int argv, char **argc)
 	//free lists
 	return (0);
 }
-//to run visualiser
-//cd /sgoinfre/clongmor/temp
-//python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`

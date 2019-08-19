@@ -78,6 +78,12 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
+void	write_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(0);
+}
+
 char	*error_check_suite(int argv, char **argc)
 {
 	int		i;
@@ -88,30 +94,10 @@ char	*error_check_suite(int argv, char **argc)
 	if (argv == 1)
 		exit(0);
 	else if ((i = check_input_int(argv, argc)) == 0)
-	{
-		ERROR;
-	}
+		write_error();
 	else if ((i = check_dups(argc)) == 0)
-	{
-		ERROR;
-	}
+		write_error();
 	else if ((i = check_maxmin(argc)) == 0)
-		ERROR;
+		write_error();
 	return (line);
-}
-
-int		lstlength(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	lst = lst->next;
-	if (!lst)
-		return (i);
-	while (!(lst == NULL))
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
 }

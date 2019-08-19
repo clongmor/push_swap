@@ -37,7 +37,7 @@ void	execute_instruction(char *buff, t_stack **a, t_stack **b)
 	else if (strcmp(buff, "rr") == 0)
 		rr(a, b);
 	else
-		ERROR;
+		write_error();
 }
 
 void	check_order(t_stack **a, t_stack **b)
@@ -79,8 +79,8 @@ int		main(int argv, char **argc)
 	while ((i = get_next_line(0, &line)) == 1)
 		execute_instruction(line, &a, &b);
 	check_order(&a, &b);
-	//free(line);
-	//line = NULL;
+	free(line);
+	line = NULL;
 	//free lists
 	return (0);
 }

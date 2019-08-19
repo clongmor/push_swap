@@ -21,7 +21,6 @@
 # define FALSE 0
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
-# define ERROR 	{write(2, "Error\n", 6); exit(0);}
 # define PUSH_TWICE	{push_sa(stack_a); push_ra(stack_a);}
 # define PUSH_TWICE_REV {push_sa(stack_a); push_rra(stack_a);}
 
@@ -103,6 +102,9 @@ void			len_100_toa(t_stack **a, t_stack **b);
 void			len_100_check_num(t_stack **a, t_stack **b);
 t_stack			*group_top_check(t_stack **a, int range);
 t_stack			*group_bot_check(t_stack *a_first, int range);
+void			len_500_check_num(t_stack **a, t_stack **b);
+void			len_20_check_num(t_stack **a, t_stack **b);
+void			len_infinite(t_stack **a, t_stack **b);
 
 /*
 ** errors
@@ -111,5 +113,6 @@ int				check_input_int(int len, char **list);
 int				check_dups(char **list);
 int				check_maxmin(char **list);
 char			*error_check_suite(int argv, char **argc);
+void			write_error(void);
 
 #endif

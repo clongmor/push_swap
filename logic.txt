@@ -52,5 +52,6 @@ rrb : reverse rotate b - shift down all elements of stack b by 1. The flast elem
 becomes the first one.
 rrr : rra and rrb at the same time.
 
-
-for 5 try push out two smallest numbers into b and then run len 3.
+//to run visualiser
+//cd /sgoinfre/clongmor/temp
+//python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
