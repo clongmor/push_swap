@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:14:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 14:51:02 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:18:46 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,8 @@ int				check_input_int(int len, char **list);
 int				check_dups(char **list);
 int				check_maxmin(char **list);
 void			error_check_suite(int argv, char **argc);
-void			write_error(void);
+void			write_error();
+void			check_dup_int(t_stack **a, t_stack **b);
 
 void			free_lists(t_stack **list);
 void			write_error_free(t_stack **a, t_stack **b);

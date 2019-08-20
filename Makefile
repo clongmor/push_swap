@@ -32,7 +32,7 @@ $(NAME_C):
 clean:
 	make clean -C libft
 
-fclean: clean
+fclean: 
 	/bin/rm -f $(NAME_P)
 	/bin/rm -f $(NAME_C)
 

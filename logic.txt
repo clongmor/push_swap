@@ -6,7 +6,7 @@
 #    By: clongmor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/29 09:47:02 by clongmor          #+#    #+#              #
-#    Updated: 2019/07/03 13:59:19 by clongmor         ###   ########.fr        #
+#    Updated: 2019/08/20 15:46:25 by clongmor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,9 @@ becomes the first one.
 rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element
 becomes the first one.
 rrr : rra and rrb at the same time.
+
+need to handle numbers with zero's in front
+need to handle string input
 
 //to run visualiser
 //cd /sgoinfre/clongmor/temp

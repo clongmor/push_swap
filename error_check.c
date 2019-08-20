@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 14:54:46 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:18:37 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
-void	write_error(void)
+void	write_error()
 {
 	write(2, "Error\n", 6);
 	exit(0);

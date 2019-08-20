@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 14:50:24 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:17:13 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ int		main(int argv, char **argc)
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
+	check_dup_int(&a, &b);
 	while ((i = get_next_line(0, &line)) == 1)
 	{
 		execute_instruction(line, &a, &b);
 		free(line);
 	}
 	check_order(&a, &b);
-	free(line);
 	line = NULL;
 	free_lists(&a);
 	free_lists(&b);
