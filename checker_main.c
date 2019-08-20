@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 13:56:54 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:50:24 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		main(int argv, char **argc)
 	t_stack	*b;
 	char	*line;
 
-	line = error_check_suite(argv, argc);
+	error_check_suite(argv, argc);
 	a = create_master();
 	b = create_master();
 	populate_list(&a, argc);
@@ -80,8 +80,6 @@ int		main(int argv, char **argc)
 	{
 		execute_instruction(line, &a, &b);
 		free(line);
-		if (!(line = malloc(sizeof(char*) * 1)))
-			exit(0);
 	}
 	check_order(&a, &b);
 	free(line);

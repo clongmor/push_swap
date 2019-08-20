@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 13:47:55 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:50:50 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,10 @@ void	write_error(void)
 	exit(0);
 }
 
-char	*error_check_suite(int argv, char **argc)
+void	*error_check_suite(int argv, char **argc)
 {
 	int		i;
-	char	*line;
 
-	if (!(line = malloc(sizeof(char*) * 1)))
-		exit(0);
 	if (argv == 1)
 		exit(0);
 	else if ((i = check_input_int(argv, argc)) == 0)
@@ -99,5 +96,4 @@ char	*error_check_suite(int argv, char **argc)
 		write_error();
 	else if ((i = check_maxmin(argc)) == 0)
 		write_error();
-	return (line);
 }
