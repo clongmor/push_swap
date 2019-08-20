@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/17 10:42:43 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:47:55 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int		check_maxmin(char **list)
 	char	*max;
 
 	i = 1;
-	min = ft_itoa(MIN_INT);
-	max = ft_itoa(MAX_INT);
+	min = "-2147483648";
+	max = "2147483647";
 	while (list[i])
 	{
 		len = ft_strlen(list[i]);

@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/17 10:43:54 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:56:54 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	execute_instruction(char *buff, t_stack **a, t_stack **b)
 	else if (strcmp(buff, "rr") == 0)
 		rr(a, b);
 	else
-		write_error();
+		write_error_free(a, b);
 }
 
 void	check_order(t_stack **a, t_stack **b)
@@ -77,10 +77,16 @@ int		main(int argv, char **argc)
 	b = create_master();
 	populate_list(&a, argc);
 	while ((i = get_next_line(0, &line)) == 1)
+	{
 		execute_instruction(line, &a, &b);
+		free(line);
+		if (!(line = malloc(sizeof(char*) * 1)))
+			exit(0);
+	}
 	check_order(&a, &b);
 	free(line);
 	line = NULL;
-	//free lists
+	free_lists(&a);
+	free_lists(&b);
 	return (0);
 }

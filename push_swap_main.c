@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:24:33 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/17 10:46:49 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:43:39 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,13 @@ int		main(int argv, char **argc)
 	b = create_master();
 	populate_list(&a, argc);
 	if ((sorted = check_sorted(a)) == 1)
+	{
+		free_lists(&a);
+		free_lists(&b);
 		return (0);
+	}
 	apply_algo(argv, &a, &b);
-	//free lists
+	free_lists(&a);
+	free_lists(&b);
 	return (0);
 }

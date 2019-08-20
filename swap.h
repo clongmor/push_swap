@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:14:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/17 10:46:15 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:50:34 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stdio.h>
 # define TRUE 1
 # define FALSE 0
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
 # define PUSH_TWICE	{push_sa(stack_a); push_ra(stack_a);}
 # define PUSH_TWICE_REV {push_sa(stack_a); push_rra(stack_a);}
 
@@ -114,5 +112,8 @@ int				check_dups(char **list);
 int				check_maxmin(char **list);
 char			*error_check_suite(int argv, char **argc);
 void			write_error(void);
+
+void			free_lists(t_stack **list);
+void			write_error_free(t_stack **a, t_stack **b);
 
 #endif
