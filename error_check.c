@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 14:50:50 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:54:46 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	write_error(void)
 	exit(0);
 }
 
-void	*error_check_suite(int argv, char **argc)
+void	error_check_suite(int argv, char **argc)
 {
 	int		i;
 

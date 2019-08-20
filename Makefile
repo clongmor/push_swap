@@ -30,7 +30,7 @@ $(NAME_C):
 	gcc $(SRCS_C) $(FLAGS) -o $(NAME_C)
 
 clean:
-	# /bin/rm -f $(GHEAD)
+	make clean -C libft
 
 fclean: clean
 	/bin/rm -f $(NAME_P)
