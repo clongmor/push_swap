@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 16:18:37 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:35:57 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		check_input_int(int len, char **list)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i < (len))
 	{
 		if (!(list[i][0]))
@@ -41,7 +41,7 @@ int		check_dups(char **list)
 	int		i;
 	int		j;
 
-	i = 1;
+	i = 0;
 	while (list[i])
 	{
 		j = i + 1;
@@ -63,7 +63,7 @@ int		check_maxmin(char **list)
 	char	*min;
 	char	*max;
 
-	i = 1;
+	i = 0;
 	min = "-2147483648";
 	max = "2147483647";
 	while (list[i])
@@ -78,7 +78,7 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
-void	write_error()
+void	write_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(0);
@@ -88,7 +88,7 @@ void	error_check_suite(int argv, char **argc)
 {
 	int		i;
 
-	if (argv == 1)
+	if (argv == 0)
 		exit(0);
 	else if ((i = check_input_int(argv, argc)) == 0)
 		write_error();

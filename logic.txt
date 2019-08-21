@@ -6,7 +6,7 @@
 #    By: clongmor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/29 09:47:02 by clongmor          #+#    #+#              #
-#    Updated: 2019/08/20 15:46:25 by clongmor         ###   ########.fr        #
+#    Updated: 2019/08/21 16:56:35 by clongmor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,8 @@ rrb : reverse rotate b - shift down all elements of stack b by 1. The flast elem
 becomes the first one.
 rrr : rra and rrb at the same time.
 
-need to handle numbers with zero's in front
-need to handle string input
+leaks in checker and free lists not working???
+free lists not working in push_swap?? and two versions?
 
 //to run visualiser
 //cd /sgoinfre/clongmor/temp

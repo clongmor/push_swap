@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 13:20:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/20 16:17:28 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:46:15 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,20 @@ void	write_error_free(t_stack **a, t_stack **b)
 	exit(0);
 }
 
+void	free_args(char **check, int argv)
+{
+	int i;
+
+	i = 0;
+	while (i < argv)
+	{
+		free(check[i]);
+		i++;
+	}
+	free(check);
+	check = NULL;
+}
+
 void	check_dup_int(t_stack **a, t_stack **b)
 {
 	t_stack	*a_head;
@@ -55,4 +69,38 @@ void	check_dup_int(t_stack **a, t_stack **b)
 		a_first = a_first->next;
 	}
 	a_first = a_head;
+}
+
+char	**single_str_arg(char **argc)
+{
+	int		i;
+	int		check;
+	char	**args;
+
+	i = 0;
+	args = NULL;
+	check = 0;
+	while (argc[0][i] != '\0')
+	{
+		if (ft_isspace(argc[0][i++]) == 1)
+		{
+			check = 1;
+			break ;
+		}
+	}
+	if (check == 1)
+		args = ft_strsplit(argc[0], ' ');
+	return (args);
+}
+
+int		argv_length(char **argc, int argv)
+{
+	int	i;
+
+	i = 0;
+	while (argc[i])
+		i++;
+	if (argv == i)
+		return (argv);
+	return (i);
 }

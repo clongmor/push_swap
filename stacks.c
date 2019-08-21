@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 09:54:14 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/17 09:59:42 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:32:48 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	populate_list(t_stack **stack, char **list)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (list[i])
 	{
 		j = ft_atoi(list[i]);
