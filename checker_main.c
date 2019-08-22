@@ -6,13 +6,13 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/22 11:18:15 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 11:19:07 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 
-int		execute_instruction(char *buff, t_stack **a, t_stack **b, char **check, int argv)
+void	execute_instruction(char *buff, t_stack **a, t_stack **b, char **check, int argv)
 {
 	if ((strcmp(buff, "sa") == 0))
 		sa(a);
