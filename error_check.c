@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:19:51 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/21 16:35:57 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 11:03:37 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ int		check_maxmin(char **list)
 	return (1);
 }
 
-void	write_error(void)
+void	write_error(char **check, int argv)
 {
+	free_args(check, argv);
 	write(2, "Error\n", 6);
 	exit(0);
 }
@@ -89,11 +90,14 @@ void	error_check_suite(int argv, char **argc)
 	int		i;
 
 	if (argv == 0)
+	{
+		free_args(argc, argv);
 		exit(0);
+	}
 	else if ((i = check_input_int(argv, argc)) == 0)
-		write_error();
+		write_error(argc, argv);
 	else if ((i = check_dups(argc)) == 0)
-		write_error();
+		write_error(argc, argv);
 	else if ((i = check_maxmin(argc)) == 0)
-		write_error();
+		write_error(argc, argv);
 }

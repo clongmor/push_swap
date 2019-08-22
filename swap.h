@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:14:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/21 16:42:44 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 11:03:21 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void			push_sa(t_stack **a);
 void			push_sb(t_stack **b);
 void			push_ss(t_stack **a, t_stack **b);
 
-void			execute_instruction(char *buff, t_stack **a, t_stack **b);
-void			check_order(t_stack **a, t_stack **b);
+void			execute_instruction(char *buff, t_stack **a, \
+t_stack **b, char **check, int argv);
+void			check_order(t_stack **a, t_stack **b, \
+char **check, int argv);
 void			update_index(t_stack **stack);
 int				check_sorted(t_stack *stack_a);
 
@@ -111,13 +113,17 @@ int				check_input_int(int len, char **list);
 int				check_dups(char **list);
 int				check_maxmin(char **list);
 void			error_check_suite(int argv, char **argc);
-void			write_error(void);
-void			check_dup_int(t_stack **a, t_stack **b);
+void			write_error(char **check, int argv);
+void			check_dup_int(t_stack **a, t_stack **b, \
+char **check, int argv);
 
 void			free_lists(t_stack **list);
-void			write_error_free(t_stack **a, t_stack **b);
+void			write_error_free(t_stack **a, t_stack **b, \
+char **check, int argv);
 void			free_args(char **check, int argv);
 char			**single_str_arg(char **argc);
-int				argv_length(char **argc, int argv);
+int				arg_len(char **argc, int argv);
+void			free_errythang(char **check, int argv, \
+t_stack **a, t_stack **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 13:20:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/21 16:46:15 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 11:01:28 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ void	free_lists(t_stack **list)
 	list = NULL;
 }
 
-void	write_error_free(t_stack **a, t_stack **b)
+void	write_error_free(t_stack **a, t_stack **b, char **check, int argv)
 {
-	free_lists(a);
-	free_lists(b);
+	free_errythang(check, argv, a, b);
 	write(1, "Error\n", 6);
 	exit(0);
 }
@@ -42,65 +41,16 @@ void	free_args(char **check, int argv)
 	i = 0;
 	while (i < argv)
 	{
-		free(check[i]);
+		ft_strdel(&check[i]);
 		i++;
 	}
-	free(check);
+	ft_strdel(check);
 	check = NULL;
 }
 
-void	check_dup_int(t_stack **a, t_stack **b)
+void	free_errythang(char **check, int argv, t_stack **a, t_stack **b)
 {
-	t_stack	*a_head;
-	t_stack	*a_first;
-	t_stack	*a_cycle;
-
-	a_first = (*a)->next;
-	a_head = (*a);
-	while (a_first->next != NULL)
-	{
-		a_cycle = a_first->next;
-		while (a_cycle != NULL)
-		{
-			if (a_first->value == a_cycle->value)
-				write_error_free(a, b);
-			a_cycle = a_cycle->next;
-		}
-		a_first = a_first->next;
-	}
-	a_first = a_head;
-}
-
-char	**single_str_arg(char **argc)
-{
-	int		i;
-	int		check;
-	char	**args;
-
-	i = 0;
-	args = NULL;
-	check = 0;
-	while (argc[0][i] != '\0')
-	{
-		if (ft_isspace(argc[0][i++]) == 1)
-		{
-			check = 1;
-			break ;
-		}
-	}
-	if (check == 1)
-		args = ft_strsplit(argc[0], ' ');
-	return (args);
-}
-
-int		argv_length(char **argc, int argv)
-{
-	int	i;
-
-	i = 0;
-	while (argc[i])
-		i++;
-	if (argv == i)
-		return (argv);
-	return (i);
+	free_args(check, argv);
+	free_lists(a);
+	free_lists(b);
 }
