@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:24:33 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/22 11:05:13 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 12:04:57 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		main(int argv, char **argc)
 	if (argv > 1)
 		argc++;
 	if ((check = single_str_arg(argc)) == NULL)
-		check = argc;
+		check = recreate_argc(argc, argv);
 	error_check_suite(arg_len(check, argv), check);
 	a = create_master();
 	b = create_master();

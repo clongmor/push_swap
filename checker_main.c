@@ -6,41 +6,41 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:22:09 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/22 11:19:07 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 13:51:13 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 
-void	execute_instruction(char *buff, t_stack **a, t_stack **b, char **check, int argv)
+void		exec_instr(char *buff, t_stacks *con, char **check, int argv)
 {
 	if ((strcmp(buff, "sa") == 0))
-		sa(a);
+		sa(&con->a);
 	else if (strcmp(buff, "sb") == 0)
-		sb(b);
+		sb(&con->b);
 	else if (strcmp(buff, "ss") == 0)
-		ss(a, b);
+		ss(&con->a, &con->b);
 	else if (strcmp(buff, "pa") == 0)
-		pa(b, a);
+		pa(&con->b, &con->a);
 	else if (strcmp(buff, "pb") == 0)
-		pb(a, b);
+		pb(&con->a, &con->b);
 	else if (strcmp(buff, "ra") == 0)
-		ra(a);
+		ra(&con->a);
 	else if (strcmp(buff, "rb") == 0)
-		rb(b);
+		rb(&con->b);
 	else if (strcmp(buff, "rra") == 0)
-		rra(a);
+		rra(&con->a);
 	else if (strcmp(buff, "rrb") == 0)
-		rrb(b);
+		rrb(&con->b);
 	else if (strcmp(buff, "rrr") == 0)
-		rrr(a, b);
+		rrr(&con->a, &con->b);
 	else if (strcmp(buff, "rr") == 0)
-		rr(a, b);
+		rr(&con->a, &con->b);
 	else
-		write_error_free(a, b, check, argv);
+		write_error_free(&(con->a), &(con->b), check, argv);
 }
 
-void	check_order(t_stack **a, t_stack **b, char **check, int argv)
+void		check_order(t_stack **a, t_stack **b, char **check, int argv)
 {
 	t_stack	*a_head;
 	t_stack	*b_head;
@@ -67,30 +67,39 @@ void	check_order(t_stack **a, t_stack **b, char **check, int argv)
 	write(1, "OK\n", 3);
 }
 
-int		main(int argv, char **argc)
+t_stacks	*get_stacks(void)
 {
-	int		i;
-	t_stack	*a;
-	t_stack	*b;
-	char	*line;
-	char	**check;
+	t_stacks *con;
+
+	if (!(con = malloc(sizeof(t_stacks))))
+		return (NULL);
+	con->a = create_master();
+	con->b = create_master();
+	return (con);
+}
+
+int			main(int argv, char **argc)
+{
+	int			i;
+	t_stacks	*con;
+	char		*line;
+	char		**check;
 
 	if (argv > 1)
 		argc++;
 	if ((check = single_str_arg(argc)) == NULL)
-		check = argc;
+		check = recreate_argc(argc, argv);
 	error_check_suite(arg_len(check, argv), check);
-	a = create_master();
-	b = create_master();
-	populate_list(&a, check);
-	check_dup_int(&a, &b, check, arg_len(check, argv));
+	con = get_stacks();
+	populate_list(&(con->a), check);
+	check_dup_int(&(con->a), &(con->b), check, arg_len(check, argv));
 	while ((i = get_next_line(0, &line)) == 1)
 	{
-		execute_instruction(line, &a, &b, check, arg_len(check, argv));
+		exec_instr(line, con, check, arg_len(check, argv));
 		free(line);
 	}
-	check_order(&a, &b, check, arg_len(check, argv));
+	check_order(&(con->a), &(con->b), check, arg_len(check, argv));
 	line = NULL;
-	free_errythang(check, arg_len(check, argv), &a, &b);
+	free_errythang(check, arg_len(check, argv), &(con->a), &(con->b));
 	return (0);
 }

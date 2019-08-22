@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:26:43 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/21 16:34:28 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 12:56:27 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	len_5_part(t_stack **a)
 	t_stack	*a_first;
 
 	a_first = (*a)->next;
-	if (min_index(*a) > 3)
+	if (min_index(*a) >= 3)
 	{
 		while (a_first->value != min_num(*a))
 		{
@@ -75,12 +75,15 @@ void	len_5(t_stack **a, t_stack **b, int argv)
 	while (i > 0)
 	{
 		len_5_part(a);
-		push_pb(a, b);
+		if (check_sorted(*a) != 1)
+			push_pb(a, b);
 		a_first = (*a)->next;
 		i--;
 	}
-	len_3(a);
-	push_pa(b, a);
+	if (check_sorted(*a) != 1)
+		len_3(a);
+	if ((*b)->next != NULL)
+		push_pa(b, a);
 	if (argv >= 6)
 		push_pa(b, a);
 	if (argv == 7)

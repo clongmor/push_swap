@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 10:14:48 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/22 11:03:21 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/22 13:51:18 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct	s_stack
 	t_bool			master;
 	struct s_stack	*next;
 }				t_stack;
+
+typedef struct	s_stacks
+{
+	t_stack *a;
+	t_stack *b;
+}				t_stacks;
 
 /*
 ** create stacks
@@ -84,8 +90,8 @@ void			push_sa(t_stack **a);
 void			push_sb(t_stack **b);
 void			push_ss(t_stack **a, t_stack **b);
 
-void			execute_instruction(char *buff, t_stack **a, \
-t_stack **b, char **check, int argv);
+void			exec_instr(char *buff, t_stacks \
+*con, char **check, int argv);
 void			check_order(t_stack **a, t_stack **b, \
 char **check, int argv);
 void			update_index(t_stack **stack);
@@ -125,5 +131,6 @@ char			**single_str_arg(char **argc);
 int				arg_len(char **argc, int argv);
 void			free_errythang(char **check, int argv, \
 t_stack **a, t_stack **b);
+char			**recreate_argc(char **argc, int argv);
 
 #endif
